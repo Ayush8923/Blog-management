@@ -11,8 +11,10 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $query = Post::query();
-        if(!auth()->check() && auth()->user()->role_id == 1) {
+        $redirectView = 'admin.posts.index';
+        if(!(auth()->check() && auth()->user()->role_id == 1)) {
             $query->where('status', 'Published');
+            $redirectView = 'posts.index';
         }
 
         // Apply search filter
@@ -28,7 +30,7 @@ class PostController extends Controller
         $categories = Category::all(); // Fetch categories for the filter dropdown
         $posts = $query->paginate(10);
 
-        return view('admin.posts.index', compact('posts', 'categories'));
+        return view($redirectView, compact('posts', 'categories'));
     }
 
     public function create()

@@ -34,11 +34,23 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg p-6">
                 @if (auth()->check() && auth()->user()->role_id == 1)
-                    <div class="mb-6 text-right">
-                        <a href="{{ route('posts.create') }}"
-                            class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-black  transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-                            <i class="fas fa-plus-circle mr-2"></i> Create New Post
-                        </a>
+                    <div class="mb-6 text-right flex justify-between">
+                        <div>
+                            <a href="{{ route('posts.create') }}"
+                                class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-black  transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                                <i class="fas fa-plus-circle mr-2"></i> Create New Post
+                            </a>
+                            <a href="{{ route('adminCategories.create') }}"
+                                class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-black  transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-5">
+                                <i class="fas fa-plus-circle mr-2"></i> Create New Category
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ route('adminCategories.index') }}"
+                                class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-black  transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-5">
+                                <i class="fas fa-plus-circle mr-2"></i> All categories
+                            </a>
+                        </div>
                     </div>
                 @endif
 
